@@ -1,0 +1,59 @@
+{
+            this.state.searchResults ?
+            
+            <div>
+              <div className='input'>
+                <input 
+                type="text"
+                onChange={this.searchHandler}></input>
+              </div>
+
+              <div 
+                style={{display: this.state.showItems ? 'block' : 'none'} }
+                className = 'CitiesDiv'>
+                {
+                
+                  this.state.searchResults.map( (country) => {
+                    i++;
+                    return (<div 
+                              onClick={this.selectItem.bind(this,country)}
+                              className={this.state.selectedItem === country.city ? 'selected' : ''}
+                              key={i}>
+                              {country.city}
+                          </div>)
+                  } )              
+                }
+              </div>
+
+
+            </div>
+            
+            : 
+
+            <div>
+              <div className='input'>
+                <input 
+                type="text"
+                onChange={this.searchHandler}></input>
+              </div>
+
+              <div 
+                style={{display: this.state.showItems ? 'block' : 'none'} }
+                className = 'CitiesDiv'>
+                {   
+                  this.state.data.map( (country) => {
+                    i++;
+                    return (<div 
+                              onClick={this.selectItem.bind(this,country)}
+                              className={this.state.selectedItem === country.city ? 'selected' : ''}
+                              key={i}>
+                              {country.city}
+                          </div>)
+                  } )           
+                }
+              </div>
+
+
+            </div>
+            
+          }
